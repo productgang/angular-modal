@@ -39,6 +39,7 @@ function modalFactoryFactory($animate, $compile, $rootScope, $controller, $q, $h
       return html.then(function (html) {
         if (!element) {
           attach(html, locals);
+          angular.element('body').addClass('modal-visible');
         }
       });
     }
@@ -77,6 +78,7 @@ function modalFactoryFactory($animate, $compile, $rootScope, $controller, $q, $h
         scope = null;
         element.remove();
         element = null;
+        angular.element('body').removeClass('modal-visible');
       });
     }
 
